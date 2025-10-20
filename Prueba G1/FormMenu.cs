@@ -19,17 +19,16 @@ namespace Prueba_G1
 
         private void AbrirFueraDeServicio(object sender, EventArgs e)
         {
-            FormFS frm = new FormFS();
-            this.Hide(); // Oculta el formulario actual
-            frm.ShowDialog(); // Abre el nuevo formulario de forma modal
-            this.Show(); // Vuelve a mostrar el formulario anterior cuando se cierre el nuevo
+            Form formulario = new FormFS(); 
+            formulario.Show();
+            this.Close();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
             foreach (ToolStripMenuItem item in menuStrip1.Items)
             {
-                // Solo asignamos el evento a los submenús
+                
                 foreach (ToolStripMenuItem subItem in item.DropDownItems)
                 {
                     subItem.Click += AbrirFueraDeServicio;
@@ -48,10 +47,10 @@ namespace Prueba_G1
 
             if (respuesta == DialogResult.Yes)
             {
-                // Volver al formulario de Login
+               
                 FormLogin login = new FormLogin();
                 login.Show();
-                this.Close(); // o this.Hide(), según prefieras
+                this.Close(); 
             }
         }
         

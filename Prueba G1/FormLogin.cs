@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,15 +22,16 @@ namespace Prueba_G1
         private void FormLogin_Load(object sender, EventArgs e)
         {
             this.AcceptButton = buttonLogin;
-            // Llenar el ComboBox con los usuarios
+           
             comboBoxUsuario.Items.Add("Vendedor1");
             comboBoxUsuario.Items.Add("Vendedor2");
             comboBoxUsuario.Items.Add("ADMIN");
 
-            // Por defecto, ocultar contraseña
+            
             labelPassword.Visible = false;
             textBoxPassword.Visible = false;
-            btnMostrar.Visible = false; 
+            btnMostrar.Visible = false;
+            linkRestablecer.Visible = false;
         }
 
         private void labelUsuario_Click(object sender, EventArgs e)
@@ -39,24 +41,26 @@ namespace Prueba_G1
 
         private void comboBoxUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Si es ADMIN, mostrar campo de contraseña
+            
             if (comboBoxUsuario.SelectedItem.ToString() == "ADMIN")
             {
                 labelPassword.Visible = true;
                 textBoxPassword.Visible = true;
-                btnMostrar.Visible = true;  
+                btnMostrar.Visible = true;
+                linkRestablecer.Visible = true;
             }
             else
             {
                 labelPassword.Visible = false;
                 textBoxPassword.Visible = false;
                 btnMostrar.Visible = false; 
+                linkRestablecer.Visible = false;
             }
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            errorProvider1.Clear(); // Limpia errores anteriores
+            errorProvider1.Clear(); 
 
             if (string.IsNullOrWhiteSpace(comboBoxUsuario.Text))
             {
@@ -80,7 +84,7 @@ namespace Prueba_G1
                 return;
             }
 
-            // Validación
+           
             if (usuario == "ADMIN")
             {
                 if (contraseña != "1234")
@@ -90,15 +94,14 @@ namespace Prueba_G1
                 }
             }
 
-            // Si pasa validación
             mensaje.Show("Sesión iniciada con éxito", buttonLogin, 0, -40, 2000);
 
-            // Mostrar mensaje adicional
+           
             MessageBox.Show("Bienvenido " + usuario + "!", "Inicio de sesión");
 
-            // Abrir el siguiente formulario
-            FormMenu siguiente = new FormMenu();
-            siguiente.Show();
+           
+            Form formulario = new FormInter();
+            formulario.Show();
             this.Hide();
         }
 
@@ -135,6 +138,14 @@ namespace Prueba_G1
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             textBoxPassword.UseSystemPasswordChar = !textBoxPassword.UseSystemPasswordChar;
+        }
+
+        private void linkRestablecer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            Form formulario = new FormConsulta();
+            formulario.Show();
+            
         }
     }
     

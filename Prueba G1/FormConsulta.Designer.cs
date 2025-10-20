@@ -33,20 +33,22 @@
             // 
             // buttonVolver
             // 
-            this.buttonVolver.Location = new System.Drawing.Point(12, 415);
+            this.buttonVolver.Location = new System.Drawing.Point(9, 337);
+            this.buttonVolver.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(75, 23);
+            this.buttonVolver.Size = new System.Drawing.Size(56, 19);
             this.buttonVolver.TabIndex = 0;
-            this.buttonVolver.Text = "button1";
+            this.buttonVolver.Text = "Regresar";
             this.buttonVolver.UseVisualStyleBackColor = true;
             this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
             // FormConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.buttonVolver);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormConsulta";
             this.Text = "FormConsulta";
             this.Load += new System.EventHandler(this.FormConsulta_Load);

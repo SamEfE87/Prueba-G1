@@ -22,11 +22,13 @@ namespace Prueba_G1
 
         }
 
-        private void buttonVolver_Click(object sender, EventArgs e)
+        private void buttonVolverFS_Click(object sender, EventArgs e)
         {
+
             this.Close();
             Form formulario = new FormMenu();
             formulario.Show();
+
         }
 
         private void FormFS_Load(object sender, EventArgs e)
